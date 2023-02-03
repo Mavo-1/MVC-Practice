@@ -8,12 +8,12 @@ const mongoose = require('mongoose')
 
 
         //*import function/routs
+const connectDB = require('./config/database')
 
-
-
+require('dotenv').config({path: './config/.env'})
 
 //todo - Connect to Database
-
+connectDB()
 
 //todo - Set Middleware
 app.set("view engine",'ejs')

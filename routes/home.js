@@ -4,7 +4,7 @@
 const express = require('express')
 const { builtinModules } = require('module')
 const router = express.Router()
-const homeController = require()
+const homeController = require('../controllers/home.js')
 
 
 router.get('/',homeController.getIndex) //read
