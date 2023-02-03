@@ -1,29 +1,28 @@
-const ItemList = require('../models/itemlist')
+const ItemList = require('../models/ItemList')
 
 module.exports = {
-    getIndex : async(req,res)=> {
+    getIndex : async (req, res) => {
         try {
-            const items = await ItemList.find()
-                       //sending objects to render in index ejs 
-            res.render('index.ejs',{itemList: items})
-        } catch (error) {
-            return res.status(500).send(error)
+            const items = await
+            ItemList.find()
+            res.render("index.ejs", { itemList: items });
+        } catch (err) {
+            if (err) return res.status(500).send(err);
         }
     },
-    createItem: async(req,res)=> {
+    createItem: async (req, res) => {
         const newItem = new ItemList(
             {
-            textInput: req.body.textInput,
-            numInput: req.body.numInput
-        }
-        ) 
+                textinput: req.body.textinput,
+                numinput: req.body.numinput
+            });
         try {
-            await newItem.save()
+            await newItem.save();
             console.log(newItem)
-            res.render('index.ejs')
-        } catch (error) {
-            if(error)return res.status(500).send(error)
-            res.redirect('/')
+            res.redirect("/");
+        } catch (err) {
+            if (err) return res.status(500).send(err);
+            res.redirect("/");
         }
-    },
+    }
 }
