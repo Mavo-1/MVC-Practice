@@ -17,7 +17,14 @@
         <button type="submit">Submit?</button>
     </form>
     <ul>
-        <!--Add EJS later-->
+        <% itemList.forEach(item => { %>
+            <li>
+                <div><%= item.textinput %></div>
+                <div><%= item.numinput %></div>
+                <a href="">Edit</a>
+                <a href="">Remove</a>
+            </li>
+        <%}) %>
     </ul>
 </body>
 </html>
